@@ -1,3 +1,8 @@
+# SPA made using React which gives updated statistics of COVID-19
+
+It is a small app which consumes an API and displays all relevant statistics related to COVID-19 on UI. 
+It also shows country wise data in a graphical representation
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

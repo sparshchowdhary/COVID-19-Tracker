@@ -1,0 +1,23 @@
+body {
+  background-image: linear-gradient( #EC6EAD, #3494E6);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+img {
+  width: 30%;
+  height: 50%;
+}
+
