@@ -11,45 +11,61 @@ const Charts=({data:{confirmed,recovered,deaths},country})=>{
        }
        fetchAPI();
     },[]);
+    //console.log(dailyData);
     const linechart=(
         dailyData.length?(
             <Line
                data={{
                    labels:dailyData.map(({date})=>date),
                    datasets:[{
-                       data:dailyData.map(({confirmed})=>confirmed.value),
+                       data:dailyData.map(({confirmed})=>confirmed),
                        label:'Infected',
-                       backgroundColor:' rgb(255, 255, 108)',
+                       backgroundColor:' #fffc00',
+                       borderColor: 'black',
+                       borderWidth: 0.5,
                        fill:true
                    },{
-                       data:dailyData.map(({deaths})=>deaths.value),
+                       data:dailyData.map(({deaths})=>deaths),
                        label:'Casualities',
-                       backgroundColor:' rgb(255, 115, 115)',
+                       backgroundColor:' #ed213a',
+                       borderColor: 'black',
+                       borderWidth: 0.5,
                        fill:true
                    },{
-                       data:dailyData.map(({recovered})=>recovered.value),
+                       data:dailyData.map(({recovered})=>recovered),
                        label:'Recovered',
-                       backgroundColor:' rgb(87, 226, 87)',
+                       backgroundColor:' #24FE41',
+                       borderColor: 'black',
+                       borderWidth: 0.5,
                        fill:true
                    }]
                }}
+               options={{
+                legend:{display:true,labels:{fontColor:'black'}},
+                scales:{yAxes:[{ticks:{fontColor:'black',fontSize:12}}],xAxes:[{ticks:{fontColor:'black',fontSize:12}}]},
+                title:{display:true,text:'Current situation across world',fontColor:'black'}
+            }}
             />
         ):null
     );
     const barchart=(
+        
         confirmed?(
             <Bar
                 data={{
                     labels:['Infected','Recovered','Casualities'],
                     datasets:[{
                         label:'People',
-                        backgroundColor:[' rgb(255, 255, 108)', ' rgb(87, 226, 87)', ' rgb(255, 115, 115)'],
+                        borderColor: 'black',
+                        borderWidth: 0.5,
+                        backgroundColor:['#fffc00', '#24FE41', ' #ed213a'],
                         data:[confirmed.value,recovered.value,deaths.value]
                     }]
                 }}
                 options={{
                     legend:{display:false},
-                    title:{display:true,text:`Current situation in ${country}`}
+                    scales:{yAxes:[{ticks:{fontColor:'black',fontSize:15}}],xAxes:[{ticks:{fontColor:'black',fontSize:15}}]},
+                    title:{display:true,text:`Current situation in ${country}`,fontColor:'black'}
                 }}
             />
         ):null
