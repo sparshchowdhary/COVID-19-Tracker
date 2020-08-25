@@ -24,17 +24,19 @@ const Charts=({data:{confirmed,recovered,deaths},country})=>{
                        borderColor: 'black',
                        borderWidth: 0.5,
                        fill:true
-                   },{
+                   },
+                   {
+                    data:dailyData.map(({recovered})=>recovered),
+                    label:'Recovered',
+                    backgroundColor:' #24FE41',
+                    borderColor: 'black',
+                    borderWidth: 0.5,
+                    fill:true
+                   },
+                   {
                        data:dailyData.map(({deaths})=>deaths),
                        label:'Casualities',
                        backgroundColor:' #ed213a',
-                       borderColor: 'black',
-                       borderWidth: 0.5,
-                       fill:true
-                   },{
-                       data:dailyData.map(({recovered})=>recovered),
-                       label:'Recovered',
-                       backgroundColor:' #24FE41',
                        borderColor: 'black',
                        borderWidth: 0.5,
                        fill:true
