@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './cards.css'
-import {Card,CardContent,Typography,Grid,makeStyles} from '@material-ui/core'
+import {Card,CardContent,Typography,Grid,makeStyles,CardMedia} from '@material-ui/core'
 import CountUp from 'react-countup'
 
 const useStyles = makeStyles({
@@ -24,6 +24,33 @@ const useStyles = makeStyles({
         borderRadius: 10,
         boxShadow: '0 2px 2px 0',
         color: 'black'
+    },
+    mediaInfected: {
+        height: 140,
+        border: 2,
+        borderRadius: 10,
+        borderColor: 'black',
+        paddingTop: '56%',
+        marginTop:'0',
+        marginLeft:'0'
+    },
+    mediaRecovered: {
+        height: 140,
+        border: 2,
+        borderRadius: 10,
+        borderColor: 'black',
+        paddingTop: '56%',
+        marginTop:'0',
+        marginLeft:'0'
+    },
+    mediaDeath: {
+        height: 140,
+        border: 2,
+        borderRadius: 10,
+        borderColor: 'black',
+        paddingTop: '56%',
+        marginTop:'0',
+        marginLeft:'0'
     }
 });
 
@@ -36,8 +63,13 @@ const Cards=({data:{confirmed,recovered,deaths,lastUpdate}})=>{
         <div className={styles.container}>
             <Grid container spacing={4} justify='space-evenly'>
                 <Grid item component={Card} xs={12} md={3} className={classes.infected}>
+                    <CardMedia 
+                        className={classes.mediaInfected}
+                        style={styles.mediaInfected}
+                        image={require('../../Images/infected.png')}
+                    /> 
                     <CardContent>
-                        <Typography color='textPrimary' variant='h5' gutterBottom>Infected</Typography>
+                        <Typography color='textPrimary' variant='h4' gutterBottom>Infected</Typography>
                         <Typography variant='h3'>
                             <CountUp
                                start={0}
@@ -51,8 +83,13 @@ const Cards=({data:{confirmed,recovered,deaths,lastUpdate}})=>{
                     </CardContent>
                 </Grid>
                 <Grid item component={Card} xs={12} md={3} className={classes.recovered}>
+                    <CardMedia 
+                        className={classes.mediaRecovered}
+                        style={styles.mediaRecovered}
+                        image={require('../../Images/recovered.jpg')}
+                    />
                     <CardContent>
-                        <Typography color='textPrimary' variant='h5' gutterBottom>Recovered</Typography>
+                        <Typography color='textPrimary' variant='h4' gutterBottom>Recovered</Typography>
                         <Typography variant='h3'>
                             <CountUp
                                start={0}
@@ -66,8 +103,14 @@ const Cards=({data:{confirmed,recovered,deaths,lastUpdate}})=>{
                     </CardContent>
                 </Grid>
                 <Grid item component={Card} xs={12} md={3} className={classes.deaths}>
+                    <CardMedia 
+                        className={classes.mediaDeath}
+                        style={styles.mediaDeath}
+                        image={require('../../Images/death.jpg')}
+                    />
                     <CardContent>
-                        <Typography color='textPrimary' variant='h5' gutterBottom>Deaths</Typography>
+                        
+                        <Typography color='textPrimary' variant='h4' gutterBottom>Deaths</Typography>
                         <Typography variant='h3'>
                             <CountUp
                                start={0}
